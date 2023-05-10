@@ -9,11 +9,11 @@ describe("LinkedListNode", () => {
 	});
 
 	it("should allow value to be an object", () => {
-		const nodeValue = { value: 26, animal: "dog" };
+		const nodeValue = { value: 26, key: "dog" };
 		const node = linkedListNode(nodeValue);
 
 		expect(node.value.value).toBe(26);
-		expect(node.value.animal).toBe("dog");
+		expect(node.value.key).toBe("dog");
 		expect(node.next).toBeNull();
 	});
 
@@ -34,5 +34,15 @@ describe("LinkedListNode", () => {
 
 		node.value = "str";
 		expect(node.toString()).toBe("str");
+	});
+
+	it("should convert node to string with custom cb param", () => {
+		const nodeValue = { value: 26, key: "dog" };
+		const node = linkedListNode(nodeValue);
+
+		const toStringCb = (value) =>
+			`value: ${value.value}, key: ${value.key}`;
+
+		expect(node.toString(toStringCb)).toBe("value: 26, key: dog");
 	});
 });
