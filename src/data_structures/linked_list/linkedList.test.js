@@ -18,4 +18,17 @@ describe("LinkedList", () => {
 		expect(ll.toString()).toBe("1,2");
 		expect(ll.tail.next).toBeNull();
 	});
+
+	it('should prepend node to linked list', () => {
+		const ll = linkedList();
+	
+		ll.prepend(2);
+		expect(ll.head.toString()).toBe('2');
+		expect(ll.tail.toString()).toBe('2');
+	
+		ll.append(1);
+		ll.prepend(3);
+	
+		expect(ll.toString()).toBe('3,2,1');
+	  });
 });
