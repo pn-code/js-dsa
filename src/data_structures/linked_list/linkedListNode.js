@@ -1,6 +1,6 @@
 function linkedListNode(value) {
 	return {
-		value,
+		value: value,
 		next: null,
 	};
 }
