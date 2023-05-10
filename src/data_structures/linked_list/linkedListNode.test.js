@@ -16,4 +16,14 @@ describe("LinkedListNode", () => {
 		expect(node.value.animal).toBe("dog");
 		expect(node.next).toBeNull();
 	});
+
+    it("nodes should link together", () => {
+        const node2 = linkedListNode(231)
+        const node1 = linkedListNode(342, node2)
+
+        expect(node1.next).toBeDefined();
+        expect(node2.next).toBeNull();
+        expect(node1.value).toBe(342)
+        expect(node2.value).toBe(231)
+    })
 });
