@@ -31,4 +31,20 @@ describe("LinkedList", () => {
 	
 		expect(ll.toString()).toBe('3,2,1');
 	  });
+
+	  it('should insert node to linked list', () => {
+		const ll = linkedList();
+	
+		ll.insert(4, 3);
+		expect(ll.head.toString()).toBe('4');
+		expect(ll.tail.toString()).toBe('4');
+	
+		ll.insert(3, 2);
+		ll.insert(2, 1);
+		ll.insert(1, -7);
+		ll.insert(10, 9);
+	
+		expect(ll.toString()).toBe('1,4,2,3,10');
+	  });
+	
 });
