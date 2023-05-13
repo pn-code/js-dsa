@@ -62,6 +62,44 @@ function linkedList() {
       }
       return this;
     },
+    delete(value) {
+      // if there is no value in the linked list, return null
+      if (!this.head) {
+        return null;
+      }
+
+      // Initiate the deletedNode
+      let deletedNode = null;
+
+      // If this head is our deleted value, delete this head, and replace the head with the current head's next
+      while (this.head && this.head.value === value) {
+        deletedNode = this.head;
+        this.head = this.head.next;
+      }
+
+      // If the head is not our deletedNode, we must traverse the linked list to find it
+      let currentNode = this.head;
+
+      // Checking if the next node is our deletedNode, if so make currentNode.next to currentNode.next.next
+      if (currentNode !== null) {
+        while (currentNode.next) {
+          if (currentNode.next.value === value) {
+            deletedNode = currentNode.next;
+            currentNode.next = currentNode.next.next;
+          } else {
+            // If currentNode is not our deletedNode value, keep traversing
+            currentNode = currentNode.next;
+          }
+        }
+      }
+
+      // Check if tail must be deleted, change the tail to our currentNode
+      if (this.tail.value === value) {
+        this.tail = currentNode;
+      }
+
+      return deletedNode;
+    },
     toArray() {
       const nodes = [];
       let currentNode = this.head;
