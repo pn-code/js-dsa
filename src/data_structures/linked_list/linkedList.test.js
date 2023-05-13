@@ -46,6 +46,7 @@ describe("LinkedList", () => {
 
     expect(ll.toString()).toBe("1,4,2,3,10");
   });
+
   it("should delete node by value from linked list", () => {
     const ll = linkedList();
 
@@ -90,5 +91,23 @@ describe("LinkedList", () => {
 
     ll.delete(2);
     expect(ll.toString()).toBe("");
+  });
+
+  it('should find node by value', () => {
+    const ll = linkedList();
+
+    expect(ll.find({ value: 5 })).toBeNull();
+
+    ll.append(1);
+    expect(ll.find({ value: 1 })).toBeDefined();
+
+    ll
+      .append(2)
+      .append(3);
+
+    const node = ll.find({ value: 2 });
+
+    expect(node.value).toBe(2);
+    expect(ll.find({ value: 5 })).toBeNull();
   });
 });

@@ -100,6 +100,25 @@ function linkedList() {
 
       return deletedNode;
     },
+    find({ value }) {
+      // if head does not exist
+      if (!this.head) {
+        return null;
+      }
+
+      let currentNode = this.head;
+
+      // traverse the linked list
+      while (currentNode) {
+        if (currentNode.value === value) {
+          return currentNode;
+        } else {
+          currentNode = currentNode.next;
+        }
+      }
+
+      return null;
+    },
     toArray() {
       const nodes = [];
       let currentNode = this.head;
