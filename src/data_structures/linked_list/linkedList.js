@@ -4,6 +4,23 @@ function linkedList() {
   return {
     head: null,
     tail: null,
+    size() {
+      if (!this.head) {
+        return 0;
+      }
+
+      let currentNode = this.head;
+      let count = 0;
+
+      // Traverse the list while keeping count
+      while (currentNode) {
+        count += 1;
+        currentNode = currentNode.next;
+      }
+      
+      // Return count when currentNode returns null
+      return count;
+    },
     append(value) {
       const node = linkedListNode(value);
 

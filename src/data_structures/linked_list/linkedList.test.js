@@ -93,7 +93,7 @@ describe("LinkedList", () => {
     expect(ll.toString()).toBe("");
   });
 
-  it('should find node by value', () => {
+  it("should find node by value", () => {
     const ll = linkedList();
 
     expect(ll.find({ value: 5 })).toBeNull();
@@ -101,13 +101,25 @@ describe("LinkedList", () => {
     ll.append(1);
     expect(ll.find({ value: 1 })).toBeDefined();
 
-    ll
-      .append(2)
-      .append(3);
+    ll.append(2).append(3);
 
     const node = ll.find({ value: 2 });
 
     expect(node.value).toBe(2);
     expect(ll.find({ value: 5 })).toBeNull();
+  });
+
+  it("should be able to count its own nodes when there are no nodes", () => {
+    const ll = linkedList();
+    
+    expect(ll.size()).toBe(0)
+  });
+
+  it("should be able to count its own nodes when there are are nodes", () => {
+    const ll = linkedList();
+
+    ll.append(2).append(3);
+    
+    expect(ll.size()).toBe(2)
   });
 });
