@@ -142,6 +142,15 @@ function linkedList() {
         return this;
       }
 
+      // There is only one node in linked list.
+      if (this.head === this.tail) {
+
+        this.head = null;
+        this.tail = null;
+  
+        return this;
+      }
+
       let currentNode = this.head;
 
       // Iterate over the linked list, while the currentNode has 2 valid nodes after it
