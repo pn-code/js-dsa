@@ -1,3 +1,4 @@
+const { default: expect } = require("expect");
 const linkedList = require("./linkedList");
 
 describe("LinkedList", () => {
@@ -111,15 +112,26 @@ describe("LinkedList", () => {
 
   it("should be able to count its own nodes when there are no nodes", () => {
     const ll = linkedList();
-    
-    expect(ll.size()).toBe(0)
+
+    expect(ll.size()).toBe(0);
   });
 
   it("should be able to count its own nodes when there are are nodes", () => {
     const ll = linkedList();
 
     ll.append(2).append(3);
-    
-    expect(ll.size()).toBe(2)
+
+    expect(ll.size()).toBe(2);
+  });
+
+  it("should be able to delete tail", () => {
+    const ll = linkedList();
+
+    ll.append(2).append(3);
+
+    ll.deleteTail();
+
+    expect(ll.size(1));
+    expect(ll.head.value === 2);
   });
 });

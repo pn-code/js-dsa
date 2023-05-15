@@ -17,7 +17,7 @@ function linkedList() {
         count += 1;
         currentNode = currentNode.next;
       }
-      
+
       // Return count when currentNode returns null
       return count;
     },
@@ -135,6 +135,23 @@ function linkedList() {
       }
 
       return null;
+    },
+    deleteTail() {
+      // If tail does not exist return;
+      if (!this.tail) {
+        return this;
+      }
+
+      let currentNode = this.head;
+
+      // Iterate over the linked list, while the currentNode has 2 valid nodes after it
+      while (currentNode.next.next) {
+        currentNode = currentNode.next;
+      }
+
+      this.tail = currentNode;
+
+      return this;
     },
     toArray() {
       const nodes = [];
