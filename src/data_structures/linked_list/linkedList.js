@@ -180,6 +180,11 @@ function linkedList() {
 
       return this;
     },
+    fromArray(array) {
+      array.forEach(value => this.append(value))
+
+      return this;
+    },
     toArray() {
       const nodes = [];
       let currentNode = this.head;

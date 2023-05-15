@@ -145,4 +145,13 @@ describe("LinkedList", () => {
     expect(ll.size(1));
     expect(ll.head.value === 3);
   });
+
+  it("should be able to make linked list from an array", () => {
+    const ll = linkedList();
+
+    ll.fromArray([1, 2, 3, 4, 5])
+
+    expect(ll.size()).toBe(5);
+    expect(ll.toString()).toBe("1,2,3,4,5");
+  });
 });
