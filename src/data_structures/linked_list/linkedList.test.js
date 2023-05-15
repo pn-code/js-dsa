@@ -134,4 +134,15 @@ describe("LinkedList", () => {
     expect(ll.size(1));
     expect(ll.head.value === 2);
   });
+
+  it("should be able to delete head", () => {
+    const ll = linkedList();
+
+    ll.append(2).append(3);
+
+    ll.deleteHead();
+
+    expect(ll.size(1));
+    expect(ll.head.value === 3);
+  });
 });

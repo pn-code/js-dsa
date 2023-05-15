@@ -144,10 +144,9 @@ function linkedList() {
 
       // There is only one node in linked list.
       if (this.head === this.tail) {
-
         this.head = null;
         this.tail = null;
-  
+
         return this;
       }
 
@@ -159,6 +158,25 @@ function linkedList() {
       }
 
       this.tail = currentNode;
+
+      return this;
+    },
+    deleteHead() {
+      // If no head is present return;
+      if (!this.head) {
+        return this;
+      }
+
+      // If the head is also the tail, delete node and set head and tail to null
+      if (this.head === this.tail) {
+        this.head = null;
+        this.tail = null;
+
+        return this;
+      }
+
+      // If head and tail is not the same, make the new head the next node
+      this.head = this.head.next;
 
       return this;
     },
