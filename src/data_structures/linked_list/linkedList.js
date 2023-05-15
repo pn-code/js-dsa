@@ -180,8 +180,31 @@ function linkedList() {
 
       return this;
     },
+    reverse() {
+      let currentNode = this.head;
+      let previousNode = null;
+      let nextNode = null;
+
+      while (currentNode) {
+        // Store our next node
+        nextNode = currentNode.next;
+
+        // Change the current node's next node with previous node (swap their places for our reverse)
+        currentNode.next = previousNode;
+
+        // Shuffle previous and current nodes forward by one
+        previousNode = currentNode;
+        currentNode = nextNode;
+      }
+
+      // Now that the reverse is complete, we just need to manually set head and tail
+      this.tail = this.head;
+      this.head = previousNode;
+
+      return this;
+    },
     fromArray(array) {
-      array.forEach(value => this.append(value))
+      array.forEach((value) => this.append(value));
 
       return this;
     },
