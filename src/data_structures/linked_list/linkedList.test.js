@@ -1,4 +1,3 @@
-const { default: expect } = require("expect");
 const linkedList = require("./linkedList");
 
 describe("LinkedList", () => {
