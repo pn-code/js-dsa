@@ -1,11 +1,11 @@
-const stackNode = require("./stackNode");
+const createNode = require("../createNode");
 
 function stack() {
   return {
     length: 0,
     head: undefined,
     push(item) {
-      const node = stackNode(item);
+      const node = createNode(item);
       this.length++;
 
       if (!this.head) {

@@ -1,4 +1,3 @@
-const { default: expect } = require("expect");
 const stack = require("./stack");
 
 describe("Stack", () => {
